@@ -1,0 +1,21 @@
+{
+    "name": "ludovicm67/php-url-explorer",
+    "description": "Get all informations you need from an URL",
+    "type": "library",
+    "require": {
+        "php": "^7.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ludovic Muller",
+            "email": "ludovicmuller1@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ludovicm67\\Url\\Explorer\\": ""
+        }
+    },
+    "minimum-stability": "dev"
+}
