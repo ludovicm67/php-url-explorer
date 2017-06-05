@@ -22,17 +22,17 @@ class RequestBuilder {
         $this->url = $url;
 
         if (!empty($opts)) {
-            $this->followlocation = parseOpts($opts, "followlocation");
-            $this->encoding       = parseOpts($opts, "encoding");
-            $this->useragent      = parseOpts($opts, "useragent");
-            $this->autoreferer    = parseOpts($opts, "autoreferer");
-            $this->connecttimeout = parseOpts($opts, "connecttimeout");
-            $this->timeout        = parseOpts($opts, "timeout");
-            $this->maxredirs      = parseOpts($opts, "maxredirs");
-            $this->post           = parseOpts($opts, "post");
-            $this->postfields     = parseOpts($opts, "postfields");
-            $this->ssl_verifyhost = parseOpts($opts, "ssl_verifyhost");
-            $this->ssl_verifypeer = parseOpts($opts, "ssl_verifypeer");
+            $this->followlocation = $this->parseOpts($opts, "followlocation");
+            $this->encoding       = $this->parseOpts($opts, "encoding");
+            $this->useragent      = $this->parseOpts($opts, "useragent");
+            $this->autoreferer    = $this->parseOpts($opts, "autoreferer");
+            $this->connecttimeout = $this->parseOpts($opts, "connecttimeout");
+            $this->timeout        = $this->parseOpts($opts, "timeout");
+            $this->maxredirs      = $this->parseOpts($opts, "maxredirs");
+            $this->post           = $this->parseOpts($opts, "post");
+            $this->postfields     = $this->parseOpts($opts, "postfields");
+            $this->ssl_verifyhost = $this->parseOpts($opts, "ssl_verifyhost");
+            $this->ssl_verifypeer = $this->parseOpts($opts, "ssl_verifypeer");
         }
     }
 
@@ -103,18 +103,18 @@ class RequestBuilder {
 
     public function getCurlOpts() {
         return [
-            "CURLOPT_RETURNTRANSFER" => true,
-            "CURLOPT_FOLLOWLOCATION" => $this->followlocation,
-            "CURLOPT_ENCODING"       => $this->encoding,
-            "CURLOPT_USERAGENT"      => $this->useragent,
-            "CURLOPT_AUTOREFERER"    => $this->autoreferer,
-            "CURLOPT_CONNECTTIMEOUT" => $this->connecttimeout,
-            "CURLOPT_TIMEOUT"        => $this->timeout,
-            "CURLOPT_MAXREDIRS"      => $this->maxredirs,
-            "CURLOPT_POST"           => $this->post,
-            "CURLOPT_POSTFIELDS"     => $this->postfields,
-            "CURLOPT_SSL_VERIFYHOST" => $this->ssl_verifyhost,
-            "CURLOPT_SSL_VERIFYPEER" => $this->ssl_verifypeer
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => $this->followlocation,
+            CURLOPT_ENCODING       => $this->encoding,
+            CURLOPT_USERAGENT      => $this->useragent,
+            CURLOPT_AUTOREFERER    => $this->autoreferer,
+            CURLOPT_CONNECTTIMEOUT => $this->connecttimeout,
+            CURLOPT_TIMEOUT        => $this->timeout,
+            CURLOPT_MAXREDIRS      => $this->maxredirs,
+            CURLOPT_POST           => $this->post,
+            CURLOPT_POSTFIELDS     => $this->postfields,
+            CURLOPT_SSL_VERIFYHOST => $this->ssl_verifyhost,
+            CURLOPT_SSL_VERIFYPEER => $this->ssl_verifypeer
         ];
     }
 }
