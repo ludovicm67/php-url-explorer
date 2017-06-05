@@ -20,6 +20,10 @@ class Request {
             throw new SupportException("Curl is not supported on your configuration.");
         }
 
+        $this->runRequest($request);
+    }
+
+    private function runRequest(RequestBuilder $request) {
         $ch = curl_init($request->url);
         curl_setopt_array($ch, $request->getCurlOpts());
         $this->content = curl_exec($ch);
@@ -30,6 +34,13 @@ class Request {
         }
         $this->infos = curl_getinfo($ch);
         curl_close($ch);
+
+        $code = $this->infos["http_code"];
+        if ($code >= 400 && $code < 500 && ini_get('allow_url_fopen')) {
+            $this->content = file_get_contents($this->infos["url"]);
+            preg_match("#HTTP/[0-9\.]+\s+([0-9]+)#", $http_response_header[0], $out);
+            $this->infos["http_code"] = intval($out[1]);
+        }
     }
 
     public function getContent() {

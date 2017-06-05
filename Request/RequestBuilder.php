@@ -103,7 +103,13 @@ class RequestBuilder {
 
     public function getCurlOpts() {
         return [
+            // needed
             CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_HTTPHEADER     => [
+                "cache-control: no-cache"
+            ],
+
+            // from user configuration
             CURLOPT_FOLLOWLOCATION => $this->followlocation,
             CURLOPT_ENCODING       => $this->encoding,
             CURLOPT_USERAGENT      => $this->useragent,

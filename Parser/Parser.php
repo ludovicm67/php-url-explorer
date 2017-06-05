@@ -28,7 +28,7 @@ abstract class Parser {
     }
 
     protected function cleanString($str) {
-        return html_entity_decode(preg_replace('!\s+!', ' ', trim(strip_tags($str))));
+        return preg_replace('!\s+!', ' ', trim(strip_tags(html_entity_decode($str))));
     }
 
 }
