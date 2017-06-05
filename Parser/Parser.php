@@ -27,4 +27,8 @@ abstract class Parser {
         return $this->results;
     }
 
+    public function fetch() {
+        return $this->getResults();
+    }
+
 }
