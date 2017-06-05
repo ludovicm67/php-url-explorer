@@ -16,13 +16,19 @@ class DescriptionParser extends Parser {
         $xp = new \DOMXPath($doc);
 
         foreach ($xp->query("//meta[@property='og:description']") as $el) {
-            $this->results = $el->getAttribute("content");
+            $this->results = $this->cleanString($el->getAttribute("content"));
         }
 
         if (empty($this->results)) {
             foreach ($xp->query("//meta[@name='description']") as $el) {
-                $this->results = $el->getAttribute("content");
+                $this->results = $this->cleanString($el->getAttribute("content"));
             }
+        }
+
+        if (empty($this->results)) {
+            $this->results = mb_strimwidth(
+                $this->cleanString($data), 0, 500, "..."
+            );
         }
 
     }

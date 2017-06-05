@@ -16,13 +16,13 @@ class TitleParser extends Parser {
         $xp = new \DOMXPath($doc);
 
         foreach ($xp->query("//meta[@property='og:title']") as $el) {
-            $this->results = $el->getAttribute("content");
+            $this->results = $this->cleanString($el->getAttribute("content"));
         }
 
         if (empty($this->results)) {
             $title = $xp->query('//title');
             if ($title->length > 0) {
-                $this->results = $title->item(0)->textContent;
+                $this->results = $this->cleanString($title->item(0)->textContent);
             }
         }
 
