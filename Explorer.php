@@ -68,7 +68,7 @@ class Explorer {
             $this->results["type"] = "none";
         } else if (!$this->results["img"]) {
             $this->results["type"] = "basic";
-        } else if ($this->results["img"]["width"] >= 450
+        } else if ($this->results["img"]["width"] >= 400
             && $this->results["img"]["height"] >= 200) {
             $this->results["type"] = "large";
         } else {
@@ -89,7 +89,7 @@ class Explorer {
         $this->results["title"] = $this->request->infos["url"];
         $this->results["description"] = "";
         $this->results["img"] = null;
-        if (!$this->request->empty) {
+        if (!$this->request->empty && $this->request->content !== "") {
             $this->buildTitle();
             $this->buildDescription();
             $this->buildImage();

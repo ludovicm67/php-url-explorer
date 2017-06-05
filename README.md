@@ -59,7 +59,7 @@ You can get by default all the following informations from a URL:
 
  - `title` : the title of the page
 
- - `descriptioǹ` the webpage description
+ - `descriptioǹ` : the webpage description
 
  - `img` : an image representing the webpage; if equals `null`, no image available, else it will give you :
 
@@ -81,7 +81,7 @@ You can get by default all the following informations from a URL:
 
     - `small` : an image was found, but it's small
 
-    - `large` : if the image has a width >= 450 and height >= 200
+    - `large` : if the image has a width >= 400 and height >= 200
 
  - `url` : here are some useful URL:
 
