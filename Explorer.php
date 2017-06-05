@@ -19,26 +19,46 @@ class Explorer {
         $this->url     = $url;
         $this->opts    = $opts;
         $this->request = Request::fetchAll(new RequestBuilder($url, $opts));
+        $this->buildResults();
+    }
+
+    private function buildTitle() {
+        $title = (new TitleParser($this->request->content))->getResults();
+        if (!empty($title)) {
+            $this->results["title"] = $title;
+        }
+    }
+
+    private function buildDescription() {
+        $this->results["description"] =
+            (new DescriptionParser($this->request->content))->getResults();
+    }
+
+    private function buildImage() {
+        $this->results["img"] =
+            (new ImageParser($this->request->content))->getResults();
+    }
+
+    private function buildUrls() {
+        $this->results["url"] = [
+            "request" => $this->url,
+            "final"   => $this->request->infos["url"],
+            "base"    => parse_url($this->request->infos["url"])['host']
+        ];
+    }
+
+    private function buildResults() {
         $this->results["code"] = $this->request->infos["http_code"];
         $this->results["title"] = $this->request->infos["url"];
         if ($this->request->empty) {
             $this->results["description"] = "";
             $this->results["img"] = null;
         } else {
-            $title = (new TitleParser($this->request->content))->getResults();
-            if (!empty($title)) {
-                $this->results["title"] = $title;
-            }
-            $this->results["description"] =
-                (new DescriptionParser($this->request->content))->getResults();
-            $this->results["img"] =
-                (new ImageParser($this->request->content))->getResults();
+            $this->buildTitle();
+            $this->buildDescription();
+            $this->buildImage();
         }
-        $this->results["url"] = [
-            "request" => $this->url,
-            "final"   => $this->request->infos["url"],
-            "base"    => parse_url($this->request->infos["url"])['host']
-        ];
+        $this->buildUrls();
     }
 
     public function getUrl() {

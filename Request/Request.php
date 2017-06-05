@@ -28,7 +28,7 @@ class Request {
         } else {
             $this->empty = false;
         }
-        $this->infos   = curl_getinfo($ch);
+        $this->infos = curl_getinfo($ch);
         curl_close($ch);
     }
 
