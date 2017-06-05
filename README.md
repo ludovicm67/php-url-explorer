@@ -47,7 +47,8 @@ will give you something like :
         "request": "https://github.com/ludovicm67/php-url-explorer",
         "final": "https://github.com/ludovicm67/php-url-explorer",
         "base": "github.com"
-    }
+    },
+    "updated": "2017-06-05T20:11:27+00:00"
 }
 ```
 
@@ -59,7 +60,7 @@ You can get by default all the following informations from a URL:
 
  - `title` : the title of the page
 
- - `descriptioǹ` : the webpage description
+ - `description` : the webpage description
 
  - `img` : an image representing the webpage; if equals `null`, no image available, else it will give you :
 
@@ -90,3 +91,5 @@ You can get by default all the following informations from a URL:
     - `final` : the final URL, after some redirections
 
     - `base` : the hostname of the final URL
+
+ - `updated` : the time at the UTC timezone when the informations were fetched (can be useful if you cache the results somewhere)

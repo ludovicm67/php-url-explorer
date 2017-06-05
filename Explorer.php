@@ -84,6 +84,12 @@ class Explorer {
         ];
     }
 
+    private function buildDate() {
+        $date = new \DateTime("now");
+        $date->setTimezone(new \DateTimeZone("UTC"));
+        $this->results["updated"] = $date->format("c");
+    }
+
     private function buildResults() {
         $this->results["code"] = $this->request->infos["http_code"];
         $this->results["title"] = $this->request->infos["url"];
@@ -96,6 +102,7 @@ class Explorer {
         }
         $this->buildType();
         $this->buildUrls();
+        $this->buildDate();
     }
 
     public function getUrl() {
