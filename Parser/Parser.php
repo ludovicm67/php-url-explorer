@@ -7,8 +7,8 @@ use ludovicm67\Url\Explorer\Exception\TypeException;
 
 abstract class Parser {
 
-    private $datas;
-    private $results;
+    protected $datas;
+    protected $results;
 
     public function __construct($datas = "") {
         if (!is_string($datas)) {
@@ -25,10 +25,6 @@ abstract class Parser {
 
     public function getResults() {
         return $this->results;
-    }
-
-    public function fetch() {
-        return $this->getResults();
     }
 
 }
