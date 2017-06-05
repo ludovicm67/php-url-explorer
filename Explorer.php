@@ -45,6 +45,14 @@ class Explorer {
             $this->request->content = "";
         }
 
+        if ($img && !filter_var($img, FILTER_VALIDATE_URL)) {
+            $parse = parse_url($this->request->infos["url"]);
+            $scheme = $parse['scheme'];
+            $separator = mb_substr($img, 0, 1, 'utf-8');
+            $separator = ($separator === "/") ? "" : "/";
+            $img = $scheme . '://' . $parse['host'] . rtrim($parse['path'], "/") . $separator . $img;
+        }
+
         $img_size = @getimagesize($img);
         if (is_array($img_size)) {
             $this->results["img"] = [
