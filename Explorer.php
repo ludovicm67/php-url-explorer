@@ -30,13 +30,50 @@ class Explorer {
     }
 
     private function buildDescription() {
-        $this->results["description"] =
-            (new DescriptionParser($this->request->content))->getResults();
+        if (substr($this->request->infos["content_type"], 0, strlen("text/")) === "text/") {
+            $this->results["description"] =
+                (new DescriptionParser($this->request->content))->getResults();
+        }
     }
 
     private function buildImage() {
-        $this->results["img"] =
-            (new ImageParser($this->request->content))->getResults();
+        $img = (new ImageParser($this->request->content))->getResults();
+
+        if (!$img && substr($this->request->infos["content_type"], 0, strlen("image/")) === "image/") {
+            $this->results["type"] = "image";
+            $img = $this->request->infos["url"];
+            $this->request->content = "";
+        }
+
+        $img_size = @getimagesize($img);
+        if (is_array($img_size)) {
+            $this->results["img"] = [
+                "url"    => $img,
+                "width"  => $img_size[0],
+                "height" => $img_size[1],
+                "mime"   => $img_size["mime"]
+            ];
+        } else {
+            $this->results["img"] = null;
+            unset($this->results["type"]);
+        }
+
+    }
+
+    private function buildType() {
+        if (isset($this->results["type"])) {
+            return;
+        }
+        if ($this->request->empty) {
+            $this->results["type"] = "none";
+        } else if (!$this->results["img"]) {
+            $this->results["type"] = "basic";
+        } else if ($this->results["img"]["width"] >= 450
+            && $this->results["img"]["height"] >= 200) {
+            $this->results["type"] = "large";
+        } else {
+            $this->results["type"] = "small";
+        }
     }
 
     private function buildUrls() {
@@ -50,14 +87,14 @@ class Explorer {
     private function buildResults() {
         $this->results["code"] = $this->request->infos["http_code"];
         $this->results["title"] = $this->request->infos["url"];
-        if ($this->request->empty) {
-            $this->results["description"] = "";
-            $this->results["img"] = null;
-        } else {
+        $this->results["description"] = "";
+        $this->results["img"] = null;
+        if (!$this->request->empty) {
             $this->buildTitle();
             $this->buildDescription();
             $this->buildImage();
         }
+        $this->buildType();
         $this->buildUrls();
     }
 
