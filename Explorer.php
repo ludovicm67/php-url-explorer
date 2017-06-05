@@ -2,6 +2,7 @@
 
 namespace ludovicm67\Url\Explorer;
 
+use ludovicm67\Url\Explorer\Parser\DescriptionParser;
 use ludovicm67\Url\Explorer\Parser\TitleParser;
 use ludovicm67\Url\Explorer\Request\Request;
 use ludovicm67\Url\Explorer\Request\RequestBuilder;
@@ -18,17 +19,17 @@ class Explorer {
         $this->opts    = $opts;
         $this->request = Request::fetchAll(new RequestBuilder($url, $opts));
         $this->results["code"] = $this->request->infos["http_code"];
+        $this->results["title"] = $this->request->infos["url"];
         if ($this->request->empty) {
-            $this->results["title"] = $this->request->infos["url"];
             $this->results["description"] = "";
             $this->results["img"] = null;
         } else {
             $title = (new TitleParser($this->request->content))->getResults();
-            if (empty($title)) {
-                $title = $this->request->infos["url"];
+            if (!empty($title)) {
+                $this->results["title"] = $title;
             }
-            $this->results["title"] = $title;
-            $this->results["description"] = "";
+            $this->results["description"] =
+                (new DescriptionParser($this->request->content))->getResults();
             $this->results["img"] = null;
         }
         $this->results["url"] = [

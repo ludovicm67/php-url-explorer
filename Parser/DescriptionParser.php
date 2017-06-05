@@ -4,7 +4,7 @@ namespace ludovicm67\Url\Explorer\Parser;
 
 use ludovicm67\Url\Explorer\Parser\Parser;
 
-class TitleParser extends Parser {
+class DescriptionParser extends Parser {
 
     public function __construct($data = "") {
         parent::__construct($data);
@@ -15,14 +15,13 @@ class TitleParser extends Parser {
         libxml_clear_errors();
         $xp = new \DOMXPath($doc);
 
-        foreach ($xp->query("//meta[@property='og:title']") as $el) {
+        foreach ($xp->query("//meta[@property='og:description']") as $el) {
             $this->results = $el->getAttribute("content");
         }
 
         if (empty($this->results)) {
-            $title = $xp->query('//title');
-            if ($title->length > 0) {
-                $this->results = $title->item(0)->textContent;
+            foreach ($xp->query("//meta[@name='description']") as $el) {
+                $this->results = $el->getAttribute("content");
             }
         }
 
