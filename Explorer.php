@@ -3,6 +3,7 @@
 namespace ludovicm67\Url\Explorer;
 
 use ludovicm67\Url\Explorer\Parser\DescriptionParser;
+use ludovicm67\Url\Explorer\Parser\ImageParser;
 use ludovicm67\Url\Explorer\Parser\TitleParser;
 use ludovicm67\Url\Explorer\Request\Request;
 use ludovicm67\Url\Explorer\Request\RequestBuilder;
@@ -30,7 +31,8 @@ class Explorer {
             }
             $this->results["description"] =
                 (new DescriptionParser($this->request->content))->getResults();
-            $this->results["img"] = null;
+            $this->results["img"] =
+                (new ImageParser($this->request->content))->getResults();
         }
         $this->results["url"] = [
             "request" => $this->url,
