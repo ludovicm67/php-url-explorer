@@ -2,11 +2,11 @@
 
 namespace ludovicm67\Url\Explorer;
 
+use ludovicm67\Request\Request;
+use ludovicm67\Request\RequestBuilder;
 use ludovicm67\Url\Explorer\Parser\DescriptionParser;
 use ludovicm67\Url\Explorer\Parser\ImageParser;
 use ludovicm67\Url\Explorer\Parser\TitleParser;
-use ludovicm67\Url\Explorer\Request\Request;
-use ludovicm67\Url\Explorer\Request\RequestBuilder;
 
 class Explorer {
 
@@ -23,30 +23,29 @@ class Explorer {
     }
 
     private function buildTitle() {
-        $title = (new TitleParser($this->request->content))->getResults();
+        $title = (new TitleParser($this->request->getContent()))->getResults();
         if (!empty($title)) {
             $this->results["title"] = $title;
         }
     }
 
     private function buildDescription() {
-        if (substr($this->request->infos["content_type"], 0, strlen("text/")) === "text/") {
+        if (substr($this->request->getInfo("content_type"), 0, strlen("text/")) === "text/") {
             $this->results["description"] =
-                (new DescriptionParser($this->request->content))->getResults();
+                (new DescriptionParser($this->request->getContent()))->getResults();
         }
     }
 
     private function buildImage() {
-        $img = (new ImageParser($this->request->content))->getResults();
+        $img = (new ImageParser($this->request->getContent()))->getResults();
 
-        if (!$img && substr($this->request->infos["content_type"], 0, strlen("image/")) === "image/") {
+        if (!$img && substr($this->request->getInfo("content_type"), 0, strlen("image/")) === "image/") {
             $this->results["type"] = "image";
-            $img = $this->request->infos["url"];
-            $this->request->content = "";
+            $img = $this->request->getInfo("url");
         }
 
         if ($img && !filter_var($img, FILTER_VALIDATE_URL)) {
-            $parse = parse_url($this->request->infos["url"]);
+            $parse = parse_url($this->request->getInfo("url"));
             $scheme = $parse['scheme'];
             $separator = mb_substr($img, 0, 1, 'utf-8');
             $separator = ($separator === "/") ? "" : "/";
@@ -72,7 +71,7 @@ class Explorer {
         if (isset($this->results["type"])) {
             return;
         }
-        if ($this->request->empty) {
+        if ($this->request->isEmpty()) {
             $this->results["type"] = "none";
         } else if (!$this->results["img"]) {
             $this->results["type"] = "basic";
@@ -87,8 +86,8 @@ class Explorer {
     private function buildUrls() {
         $this->results["url"] = [
             "request" => $this->url,
-            "final"   => $this->request->infos["url"],
-            "base"    => parse_url($this->request->infos["url"])['host']
+            "final"   => $this->request->getInfo("url"),
+            "base"    => parse_url($this->request->getInfo("url"))['host']
         ];
     }
 
@@ -99,11 +98,11 @@ class Explorer {
     }
 
     private function buildResults() {
-        $this->results["code"] = $this->request->infos["http_code"];
-        $this->results["title"] = $this->request->infos["url"];
+        $this->results["code"] = $this->request->getInfo("http_code");
+        $this->results["title"] = $this->request->getInfo("url");
         $this->results["description"] = "";
         $this->results["img"] = null;
-        if (!$this->request->empty && $this->request->content !== "") {
+        if (!$this->request->isEmpty() && $this->request->getContent() !== "") {
             $this->buildTitle();
             $this->buildDescription();
             $this->buildImage();

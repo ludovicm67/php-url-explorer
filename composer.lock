@@ -4,8 +4,49 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d63dbf25419a2bbb75190389dc38cf47",
-    "packages": [],
+    "content-hash": "b0eee0ea519e65ddbcd4033fb9544eaa",
+    "packages": [
+        {
+            "name": "ludovicm67/request",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ludovicm67/php-request.git",
+                "reference": "7ba6e64f574f4385eff8c2429549e04f9528fbf2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ludovicm67/php-request/zipball/7ba6e64f574f4385eff8c2429549e04f9528fbf2",
+                "reference": "7ba6e64f574f4385eff8c2429549e04f9528fbf2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "^7.0",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ludovicm67\\Request\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "ludovicm67",
+                    "email": "ludovicmuller1@gmail.com"
+                }
+            ],
+            "description": "Perform a request",
+            "time": "2017-09-14T22:51:21+00:00"
+        }
+    ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",

@@ -3,7 +3,8 @@
     "description": "Get all informations you need from an URL",
     "type": "library",
     "require": {
-        "php": "^7.0"
+        "php": "^7.0",
+        "ludovicm67/request": "^1.0"
     },
     "license": "MIT",
     "authors": [
