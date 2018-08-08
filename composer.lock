@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0eee0ea519e65ddbcd4033fb9544eaa",
+    "content-hash": "1ef8e37c5e7fd95434dfcb9d6db2b2c1",
     "packages": [
         {
             "name": "ludovicm67/request",
@@ -12,18 +12,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ludovicm67/php-request.git",
-                "reference": "3347065bd141d74555745d11dd9d9e3f54a2f3ff"
+                "reference": "bedda443736daf445434eab2207d829babf02639"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ludovicm67/php-request/zipball/3347065bd141d74555745d11dd9d9e3f54a2f3ff",
-                "reference": "3347065bd141d74555745d11dd9d9e3f54a2f3ff",
+                "url": "https://api.github.com/repos/ludovicm67/php-request/zipball/bedda443736daf445434eab2207d829babf02639",
+                "reference": "bedda443736daf445434eab2207d829babf02639",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "^7.0",
                 "ludovicm67/strings": "^1.0",
-                "php": "^7.0"
+                "php": "^7.1"
             },
             "require-dev": {
                 "phpunit/phpunit": "^6.3",
@@ -46,7 +46,7 @@
                 }
             ],
             "description": "Perform a request",
-            "time": "2018-08-08T12:17:42+00:00"
+            "time": "2018-08-08T12:50:46+00:00"
         },
         {
             "name": "ludovicm67/strings",
@@ -96,7 +96,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.0"
+        "php": "^7.1"
     },
     "platform-dev": []
 }
