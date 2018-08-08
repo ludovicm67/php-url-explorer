@@ -17,11 +17,20 @@ class DescriptionParser extends Parser {
 
         foreach ($xp->query("//meta[@property='og:description']") as $el) {
             $this->results = $this->cleanString($el->getAttribute("content"));
+            if (!empty($this->results)) break;
         }
 
         if (empty($this->results)) {
             foreach ($xp->query("//meta[@name='description']") as $el) {
                 $this->results = $this->cleanString($el->getAttribute("content"));
+                if (!empty($this->results)) break;
+            }
+        }
+
+        if (empty($this->results)) {
+            foreach ($xp->query("//meta[@name='Description']") as $el) {
+                $this->results = $this->cleanString($el->getAttribute("content"));
+                if (!empty($this->results)) break;
             }
         }
 
