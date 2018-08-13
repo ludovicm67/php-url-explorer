@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "ludovicm67/request",
-            "version": "v1.0.2",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ludovicm67/php-request.git",
-                "reference": "bedda443736daf445434eab2207d829babf02639"
+                "reference": "6ea47879cf08aeb9dae0970cd9921070f87f69c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ludovicm67/php-request/zipball/bedda443736daf445434eab2207d829babf02639",
-                "reference": "bedda443736daf445434eab2207d829babf02639",
+                "url": "https://api.github.com/repos/ludovicm67/php-request/zipball/6ea47879cf08aeb9dae0970cd9921070f87f69c6",
+                "reference": "6ea47879cf08aeb9dae0970cd9921070f87f69c6",
                 "shasum": ""
             },
             "require": {
@@ -46,7 +46,7 @@
                 }
             ],
             "description": "Perform a request",
-            "time": "2018-08-08T12:50:46+00:00"
+            "time": "2018-08-13T08:40:35+00:00"
         },
         {
             "name": "ludovicm67/strings",

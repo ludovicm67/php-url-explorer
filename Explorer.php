@@ -84,10 +84,15 @@ class Explorer {
     }
 
     private function buildUrls() {
+        $parsedUrl = parse_url($this->request->getInfo("url"));
+        $base = ($parsedUrl && isset($parsedUrl['host']))
+                ? $parsedUrl['host']
+                : $this->url;
+
         $this->results["url"] = [
             "request" => $this->url,
             "final"   => $this->request->getInfo("url"),
-            "base"    => parse_url($this->request->getInfo("url"))['host']
+            "base"    => $base,
         ];
     }
 
