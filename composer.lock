@@ -1,33 +1,33 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1ef8e37c5e7fd95434dfcb9d6db2b2c1",
+    "content-hash": "ef74adad932241764360c1e1a2636cc3",
     "packages": [
         {
             "name": "ludovicm67/request",
-            "version": "v1.0.5",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ludovicm67/php-request.git",
-                "reference": "183a0bbf021fc3251d683e375c138665be01b7b4"
+                "reference": "b993816f60931021ff94bec013c4b1669e4a7f3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ludovicm67/php-request/zipball/183a0bbf021fc3251d683e375c138665be01b7b4",
-                "reference": "183a0bbf021fc3251d683e375c138665be01b7b4",
+                "url": "https://api.github.com/repos/ludovicm67/php-request/zipball/b993816f60931021ff94bec013c4b1669e4a7f3b",
+                "reference": "b993816f60931021ff94bec013c4b1669e4a7f3b",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "^7.0",
-                "ludovicm67/strings": "^1.0",
-                "php": "^7.1"
+                "ext-curl": "^7.0|^8.0",
+                "ludovicm67/strings": "^2.0",
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.3",
-                "satooshi/php-coveralls": "dev-master"
+                "php-coveralls/php-coveralls": "^2.4",
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "autoload": {
@@ -46,28 +46,32 @@
                 }
             ],
             "description": "Perform a request",
-            "time": "2018-08-13T09:18:38+00:00"
+            "support": {
+                "issues": "https://github.com/ludovicm67/php-request/issues",
+                "source": "https://github.com/ludovicm67/php-request/tree/v2.0.0"
+            },
+            "time": "2021-01-17T14:45:38+00:00"
         },
         {
             "name": "ludovicm67/strings",
-            "version": "v1.0",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ludovicm67/php-strings.git",
-                "reference": "2ef06310a6ba2b7de69a793185b670b93cbcc131"
+                "reference": "df11b99b152cbf100595df9dd0daa856c7a76769"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ludovicm67/php-strings/zipball/2ef06310a6ba2b7de69a793185b670b93cbcc131",
-                "reference": "2ef06310a6ba2b7de69a793185b670b93cbcc131",
+                "url": "https://api.github.com/repos/ludovicm67/php-strings/zipball/df11b99b152cbf100595df9dd0daa856c7a76769",
+                "reference": "df11b99b152cbf100595df9dd0daa856c7a76769",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.0"
+                "php": "^7.3|^8.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.3",
-                "satooshi/php-coveralls": "dev-master"
+                "php-coveralls/php-coveralls": "^2.4",
+                "phpunit/phpunit": "^9"
             },
             "type": "library",
             "autoload": {
@@ -86,7 +90,11 @@
                 }
             ],
             "description": "Some useful functions for working with strings",
-            "time": "2017-10-02T20:16:54+00:00"
+            "support": {
+                "issues": "https://github.com/ludovicm67/php-strings/issues",
+                "source": "https://github.com/ludovicm67/php-strings/tree/v2.0.0"
+            },
+            "time": "2021-01-17T13:58:10+00:00"
         }
     ],
     "packages-dev": [],
@@ -96,7 +104,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.1"
+        "php": "^7.3|^8.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }
