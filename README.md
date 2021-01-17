@@ -4,11 +4,7 @@
 
 [![Latest Stable Version](https://poser.pugx.org/ludovicm67/url-explorer/v/stable)](https://packagist.org/packages/ludovicm67/url-explorer)
 [![Total Downloads](https://poser.pugx.org/ludovicm67/url-explorer/downloads)](https://packagist.org/packages/ludovicm67/url-explorer)
-[![Latest Unstable Version](https://poser.pugx.org/ludovicm67/url-explorer/v/unstable)](https://packagist.org/packages/ludovicm67/url-explorer)
 [![License](https://poser.pugx.org/ludovicm67/url-explorer/license)](https://packagist.org/packages/ludovicm67/url-explorer)
-[![Monthly Downloads](https://poser.pugx.org/ludovicm67/url-explorer/d/monthly)](https://packagist.org/packages/ludovicm67/url-explorer)
-[![Daily Downloads](https://poser.pugx.org/ludovicm67/url-explorer/d/daily)](https://packagist.org/packages/ludovicm67/url-explorer)
-[![composer.lock](https://poser.pugx.org/ludovicm67/url-explorer/composerlock)](https://packagist.org/packages/ludovicm67/url-explorer)
 
 ## Installation
 
@@ -56,40 +52,22 @@ will give you something like :
 
 You can get by default all the following informations from a URL:
 
- - `code` : the HTTP code from the request
-
- - `title` : the title of the page
-
- - `description` : the webpage description
-
- - `img` : an image representing the webpage; if equals `null`, no image available, else it will give you :
-
-    - `url` : the url of the image
-
-    - `width` : the width of the image
-
-    - `height` : the height of the image
-
-    - `mime` : the mime type of the image
-
- - `type` : the type of *card* to display. It can have the following values :
-
-    - `image` : the URL is an image
-
-    - `none` : no information found
-
-    - `basic` : only a title and maybe a description was found (no image)
-
-    - `small` : an image was found, but it's small
-
-    - `large` : if the image has a width >= 400 and height >= 200
-
- - `url` : here are some useful URL:
-
-    - `request` : the URL used for the request
-
-    - `final` : the final URL, after some redirections
-
-    - `base` : the hostname of the final URL
-
- - `updated` : the time at the UTC timezone when the informations were fetched (can be useful if you cache the results somewhere)
+-   `code`: the HTTP code from the request
+-   `title`: the title of the page
+-   `description`: the webpage description
+-   `img`: an image representing the webpage; if equals `null`, no image available, else it will give you :
+    -   `url`: the url of the image
+    -   `width`: the width of the image
+    -   `height`: the height of the image
+    -   `mime`: the mime type of the image
+-   `type`: the type of _card_ to display. It can have the following values :
+    -   `image`: the URL is an image
+    -   `none`: no information found
+    -   `basic`: only a title and maybe a description was found (no image)
+    -   `small`: an image was found, but it's small
+    -   `large`: if the image has a width >= 400 and height >= 200
+-   `url`: here are some useful URL:
+    -   `request`: the URL used for the request
+    -   `final`: the final URL, after some redirections
+    -   `base`: the hostname of the final URL
+-   `updated`: the time at the UTC timezone when the informations were fetched (can be useful if you cache the results somewhere)
