@@ -8,11 +8,11 @@
 
 ## Installation
 
-Just run the following command : `composer require ludovicm67/url-explorer` to add it to your PHP project!
+Just run the following command: `composer require ludovicm67/url-explorer` to add it to your PHP project!
 
 ## How to use it?
 
-Running the following code :
+Running the following code:
 
 ```php
 <?php
@@ -25,7 +25,7 @@ echo new Explorer("https://github.com/ludovicm67/php-url-explorer");
 
 ```
 
-will give you something like :
+will give you something like:
 
 ```json
 {
@@ -55,12 +55,12 @@ You can get by default all the following informations from a URL:
 -   `code`: the HTTP code from the request
 -   `title`: the title of the page
 -   `description`: the webpage description
--   `img`: an image representing the webpage; if equals `null`, no image available, else it will give you :
+-   `img`: an image representing the webpage; if equals `null`, no image available, else it will give you:
     -   `url`: the url of the image
     -   `width`: the width of the image
     -   `height`: the height of the image
     -   `mime`: the mime type of the image
--   `type`: the type of _card_ to display. It can have the following values :
+-   `type`: the type of _card_ to display. It can have the following values:
     -   `image`: the URL is an image
     -   `none`: no information found
     -   `basic`: only a title and maybe a description was found (no image)
