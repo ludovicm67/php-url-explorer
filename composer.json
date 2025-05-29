@@ -3,13 +3,14 @@
     "description": "Get all informations you need from an URL",
     "type": "library",
     "require": {
-        "ludovicm67/request": "^2.0"
+        "ludovicm67/request": "^2"
     },
     "license": "MIT",
     "authors": [
         {
             "name": "Ludovic Muller",
-            "email": "ludovicmuller1@gmail.com"
+            "email": "ludovicmuller1@gmail.com",
+            "homepage": "https://ludovic-muller.fr/"
         }
     ],
     "autoload": {

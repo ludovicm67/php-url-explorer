@@ -4,30 +4,28 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "68fb14480ccc6046d46effce49fd8959",
+    "content-hash": "f561a11b7642a8932fd45674291a86e3",
     "packages": [
         {
             "name": "ludovicm67/request",
-            "version": "v2.0.0",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ludovicm67/php-request.git",
-                "reference": "b993816f60931021ff94bec013c4b1669e4a7f3b"
+                "reference": "fdcc2c2c2c7c60d0d2dbb76f3bba8d76950f8af7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ludovicm67/php-request/zipball/b993816f60931021ff94bec013c4b1669e4a7f3b",
-                "reference": "b993816f60931021ff94bec013c4b1669e4a7f3b",
+                "url": "https://api.github.com/repos/ludovicm67/php-request/zipball/fdcc2c2c2c7c60d0d2dbb76f3bba8d76950f8af7",
+                "reference": "fdcc2c2c2c7c60d0d2dbb76f3bba8d76950f8af7",
                 "shasum": ""
             },
             "require": {
-                "ext-curl": "^7.0|^8.0",
-                "ludovicm67/strings": "^2.0",
-                "php": "^7.3|^8.0"
+                "ext-curl": "*",
+                "ludovicm67/strings": "^2"
             },
             "require-dev": {
-                "php-coveralls/php-coveralls": "^2.4",
-                "phpunit/phpunit": "^9"
+                "phpunit/phpunit": "^12"
             },
             "type": "library",
             "autoload": {
@@ -41,37 +39,34 @@
             ],
             "authors": [
                 {
-                    "name": "ludovicm67",
-                    "email": "ludovicmuller1@gmail.com"
+                    "name": "Ludovic Muller",
+                    "email": "ludovicmuller1@gmail.com",
+                    "homepage": "https://ludovic-muller.fr/"
                 }
             ],
             "description": "Perform a request",
             "support": {
                 "issues": "https://github.com/ludovicm67/php-request/issues",
-                "source": "https://github.com/ludovicm67/php-request/tree/v2.0.0"
+                "source": "https://github.com/ludovicm67/php-request/tree/v2.1.0"
             },
-            "time": "2021-01-17T14:45:38+00:00"
+            "time": "2025-05-29T11:00:31+00:00"
         },
         {
             "name": "ludovicm67/strings",
-            "version": "v2.0.0",
+            "version": "v2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ludovicm67/php-strings.git",
-                "reference": "df11b99b152cbf100595df9dd0daa856c7a76769"
+                "reference": "3ad2d5090f3d987aa0c18508ed54697e898927be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ludovicm67/php-strings/zipball/df11b99b152cbf100595df9dd0daa856c7a76769",
-                "reference": "df11b99b152cbf100595df9dd0daa856c7a76769",
+                "url": "https://api.github.com/repos/ludovicm67/php-strings/zipball/3ad2d5090f3d987aa0c18508ed54697e898927be",
+                "reference": "3ad2d5090f3d987aa0c18508ed54697e898927be",
                 "shasum": ""
             },
-            "require": {
-                "php": "^7.3|^8.0"
-            },
             "require-dev": {
-                "php-coveralls/php-coveralls": "^2.4",
-                "phpunit/phpunit": "^9"
+                "phpunit/phpunit": "^12"
             },
             "type": "library",
             "autoload": {
@@ -85,25 +80,26 @@
             ],
             "authors": [
                 {
-                    "name": "ludovicm67",
-                    "email": "ludovicmuller1@gmail.com"
+                    "name": "Ludovic Muller",
+                    "email": "ludovicmuller1@gmail.com",
+                    "homepage": "https://ludovic-muller.fr/"
                 }
             ],
             "description": "Some useful functions for working with strings",
             "support": {
                 "issues": "https://github.com/ludovicm67/php-strings/issues",
-                "source": "https://github.com/ludovicm67/php-strings/tree/v2.0.0"
+                "source": "https://github.com/ludovicm67/php-strings/tree/v2.1.1"
             },
-            "time": "2021-01-17T13:58:10+00:00"
+            "time": "2025-05-29T10:44:47+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
-    "platform-dev": [],
+    "platform": {},
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }
